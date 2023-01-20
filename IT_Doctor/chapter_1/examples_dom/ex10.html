@@ -22,6 +22,13 @@
     for(let atrr of elem.attributes) {
       console.log(`${atrr.name} = ${atrr.value}`)
     }
+    // Удаление атрибута
+    elem.removeAttribute("title")
+    for(let atrr of elem.attributes) {
+      console.log(`${atrr.name} = ${atrr.value}`)
+    }
+    // Посмотреть элемент в консоли и все его свойства
+    console.dir(elem)
 
   </script>
 </body>
