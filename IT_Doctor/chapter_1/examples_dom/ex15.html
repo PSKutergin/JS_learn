@@ -13,6 +13,12 @@
   </div>
 
   <script>
+    // Клонирование элементов
+    let div = document.querySelector('div')
+
+    let div2 = div.cloneNode(true) // если true - то включая все элементы которые находятся внутри
+    div2.querySelector('p').textContent = "Еще одно сообщение"
+    div.after(div2)
 
   </script>
 </body>

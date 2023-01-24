@@ -33,6 +33,12 @@
 
 <body>
   <script>
+    let sortedRows = Array.from(table.rows)
+    .slice(1)
+    .sort((rowA, rowB) => {
+      return rowA.cells[1].innerHTML - rowB.cells[1].innerHTML
+    })
+    table.tBodies[0].append(...sortedRows)
 
   </script>
 </body>

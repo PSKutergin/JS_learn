@@ -6,12 +6,75 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../css/style.css">
   <title>Пример 18 - Календарь</title>
+  <style>
+    .container {
+      max-width: 1200px;
+    }
+  </style>
 </head>
 
 <body>
   <div class="container"></div>
 
   <script>
+    // Создание календаря
+    function createCalendar(elem, year, month) {
+      elem = document.querySelector(elem)
+
+      let mon = month - 1
+      let d = new Date(year, mon)
+
+      let table = `
+      <table>
+        <caption>${month}.${year}</caption>
+        <tr>
+          <th>пн</th>
+          <th>вт</th>
+          <th>ср</th>
+          <th>чт</th>
+          <th>пт</th>
+          <th>сб</th>
+          <th>вс</th>
+        </tr>
+        <tr>
+      `;
+
+      for(let i=0; i<getDay(d); i++) {
+        table += '<td></td>'
+      }
+
+      while(d.getMonth() == mon) {
+        table += '<td>' + d.getDate() + '</td>'
+        if(getDay(d) % 7 == 6) {
+          table += '</tr><tr>'
+        }
+        d.setDate(d.getDate()+1)
+      }
+
+      if(getDay(d) != 0) {
+        for(let i=getDay(d); i<7; i++) {
+          table += '<td></td>'
+        }
+      }
+
+      table += '</tr></table>';
+      elem.innerHTML = table
+    }
+
+    // конвертация дней недели для JS
+    function getDay(date) {
+      let day = date.getDay();
+      if(day == 0) day = 7;
+      return day - 1;
+    }
+
+    for(let month = 12; month>0; month--) {
+      let container = document.querySelector('.container')
+      container.insertAdjacentHTML('afterbegin', '<div></div>')
+      let div = document.querySelector('.container > div').setAttribute('class', `month${month}`)
+      createCalendar(`div.month${month}`, 2021, month)
+    }
+
     
   </script>
 </body>

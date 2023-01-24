@@ -28,6 +28,31 @@
       }
     }
 
+    // Создать список ul с дочерними элементами
+    function createUl(obj) {
+      if(!Object.key(obj).length)
+        return
+      let ul = document.createElement('ul')
+      for(let key in obj) {
+        let li = document.createElement('li')
+        if(!isNaN(obj[key]))
+          li.textContent = key + ' ' + obj[key]
+        else
+          li.textContent = key
+        let childrenUl = createUl(obj[key])
+        if(childrenUl) {
+          li.append(childrenUl)
+        }
+        ul.append(li)
+      }                
+      return ul
+    }
+    function createTree(container, obj) {
+      document.querySelector(container).append(createUl(obj))
+    }
+
+    createTree('body', data)
+
   </script>
 </body>
 </html>
