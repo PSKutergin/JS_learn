@@ -30,7 +30,7 @@
 
     // Создать список ul с дочерними элементами
     function createUl(obj) {
-      if(!Object.key(obj).length)
+      if(!Object.keys(obj).length)
         return
       let ul = document.createElement('ul')
       for(let key in obj) {
