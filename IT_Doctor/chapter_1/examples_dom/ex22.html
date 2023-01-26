@@ -13,7 +13,16 @@
   </div>
 
   <script>
-
+    let div = document.querySelector('div')
+    div.style.color = "black"
+    div.style.width = "300px"
+    div.style.backgroundColor = prompt("Цвет", "tomato")
+    div.style.display = "none" // Скрыть элемент
+    setTimeout(() => div.style.display = "", 2000) // Вернуть элемент
+    console.log(div.style.color)
+    // Получить конечные стили элемента
+    let style = getComputedStyle(div)
+    console.log(style)
   </script>
 </body>
 </html>
