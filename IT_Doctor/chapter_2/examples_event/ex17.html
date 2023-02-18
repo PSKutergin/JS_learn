@@ -54,6 +54,26 @@
 
     createTree('body', data);
 
+    // let ul = document.querySelector('ul')
+    // for(let li of ul.querySelectorAll('li')) {
+    //   let span = document.createElement('span')
+    //   li.prepend(span)
+    //   span.append(span.nextSibling)
+    // }
+
+    // ul.onclick = function (event) {
+    //   if(event.target.tagName != 'SPAN') return
+    //   let childrenContainer = event.target.perentNode.querySelector('ul')
+    //   if(!childrenContainer) return
+    //   childrenContainer.hidden = !childrenContainer.hidden
+    // }
+
+    document.querySelector('ul').onclick = function(e) {
+      if (e.target.tagName!='LI') return;
+      let childrenContainer = e.target.querySelector('ul');
+      if (childrenContainer) childrenContainer.hidden = !childrenContainer.hidden;
+    }
+
     
   </script>
 </body>

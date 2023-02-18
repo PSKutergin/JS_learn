@@ -27,7 +27,12 @@
   </form>
 
   <script>
-
+    document.addEventListener('click', function(e) {
+      let id = e.target.dataset.toggleId
+      if(!id) return
+      let elem = document.getElementById(id)
+      elem.hidden = !elem.hidden 
+    })
   </script>
 </body>
 
