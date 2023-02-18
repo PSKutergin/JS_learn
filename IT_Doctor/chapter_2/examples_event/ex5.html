@@ -13,7 +13,13 @@
   <button class="btn">Кнопка</button>
 
   <script>
-
+    document.querySelector('.btn').onclick = function(event) {
+      console.log(this)
+      console.log(event)
+      console.log(event.currentTarget)
+      console.log(event.clientX)
+      console.log(event.clientY)
+    }
   </script>
 </body>
 

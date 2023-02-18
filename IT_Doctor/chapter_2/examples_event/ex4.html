@@ -13,7 +13,21 @@
   <button class="btn">Кнопка</button>
 
   <script>
+    function addText1() {
+      alert("Первый текст")
+    }
+    function addText2() {
+      alert("Второй текст")
+    }
+    function addText3() {
+      alert("Третий текст")
+    }
 
+    // document.querySelector('.btn').onclick = addText1
+    document.querySelector('.btn').addEventListener('click', addText1)
+    document.querySelector('.btn').addEventListener('click', addText2)
+    document.querySelector('.btn').addEventListener('click', addText3)
+    document.querySelector('.btn').removeEventListener('click', addText3)
   </script>
 </body>
 

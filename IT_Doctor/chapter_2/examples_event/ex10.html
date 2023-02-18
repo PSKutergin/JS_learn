@@ -12,6 +12,9 @@
 
   <div>
     <p>Lorem ipsum dolor sit amet.</p>
+    <p>Lorem ipsum dolor sit amet.</p>
+    <p>Lorem ipsum dolor sit amet.</p>
+    <p>Lorem ipsum dolor sit amet.</p>
   </div>
 
   <div class="block">Text</div>
@@ -21,7 +24,43 @@
   <input type="text" placeholder="Text">
 
   <script>
-    
+    class $ {
+      constructor(selector, where = document) {
+        this.self = where.querySelector(selector)
+        this.elems = where.querySelectorAll(selector)
+      }
+      each(callback) {
+        for(let elem of this.elems) {
+          callback(elem)
+        }
+      }
+      on(event, callback) {
+        for(let elem of this.elems) {
+          elem.addEventListener(event, callback)
+        }
+        return this
+      }
+    }
+
+    new $('.block').self.innerHTML = "Новый текст"
+    new $('p', new $('div').self).each(function(elem) {
+      elem.innerHTML = 1
+    })
+
+    new $('input').each(function(e) {
+      e.style.fontSize = '20px'
+    })
+
+    new $('div').on('click', function() {
+      this.classList.toggle('bgc')
+    })
+
+    new $('input').on('focus', function() {
+      this.style.backgroundColor = 'tomato'
+    }).on('blur', function() {
+      this.style.backgroundColor = ''
+    })
+
   </script>
 </body>
 

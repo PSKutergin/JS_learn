@@ -30,7 +30,12 @@
   </div>
 
   <script>
+      let items = document.querySelectorAll('.item')
 
+      for(let item of items) {
+        item.querySelector('.item-title').insertAdjacentHTML("beforeend", '<button class="close">&times;</button>')
+        item.querySelector('.close').onclick = () => item.remove()
+      }
   </script>
 </body>
 

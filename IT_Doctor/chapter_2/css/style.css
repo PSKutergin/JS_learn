@@ -167,7 +167,7 @@ li {
   color: white;
 }
 /* Депозитный калькулятор */
-#dark table, td, tr, th {
+#dark table, #dark td, #dark tr, #dark th {
   text-align: left;
   border: none;
 }

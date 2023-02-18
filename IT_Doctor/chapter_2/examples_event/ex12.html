@@ -21,7 +21,11 @@
   </form>
 
   <script>
-
+    for(let elem of document.querySelectorAll('*')) {
+      elem.addEventListener('click', function(e) {
+        console.log(elem.tagName + " - Фаза " + e.eventPhase) // Вывод в консоль номер фазы (1 - погружение, 2 - цель, 3 - всплытие)
+      }, true) // если true - фаза погружения, если false - фаза всплытия. По умолчанию false
+    }
   </script>
 </body>
 

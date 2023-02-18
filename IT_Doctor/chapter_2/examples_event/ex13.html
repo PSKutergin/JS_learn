@@ -32,6 +32,21 @@
   </table>
 
   <script>
+    let currentTd;
+    table.onclick = function(e) {
+      let td = e.target.closest('td') // поиск родительского тега относительно элемента, на который произведен клик (в данном случае клик проиизводится сразу на тег td)
+      if(!td) return
+      if(!table.contains(td)) return
+      hover(td)
+    }
+
+    function hover(td) {
+      if(currentTd) {
+        currentTd.classList.remove('bgc')
+      }
+      currentTd = td
+      currentTd.classList.add('bgc')
+    }
 
   </script>
 </body>
