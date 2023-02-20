@@ -11,7 +11,31 @@
 <body>
   <button>Кнопка</button>
   <script>
-    
+    document.querySelector('button').onclick = function(e) {
+      if(e.altKey && e.shiftKey) {
+        console.log('Alt+Shift+Click')
+      }
+    }
+    // document.querySelector('button').onclick = function(e) {
+    //   if(e.ctrlKey && e.shiftKey) {
+    //     console.log('Ctrl+Shift+Click')
+    //   }
+    // }
+
+    // Для кнопки Command на Mac
+    document.querySelector('button').onclick = function(e) {
+      if(e.metaKey && e.shiftKey) {
+        console.log('Command+Shift+Click')
+      }
+    } 
+
+
+    document.querySelector('button').onclick = function(e) {
+      if((e.ctrlKey && e.shiftKey) || (e.metaKey && e.shiftKey)) {
+        console.log('Ctrl+Shift+Click')
+        console.log('Command+Shift+Click')
+      }
+    } 
   </script>
 </body>
 
