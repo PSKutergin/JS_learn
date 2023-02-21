@@ -27,13 +27,42 @@
     </select>
     <select name="mySelect2" multiple>
       <option value="item4" selected>Элемент 1</option>
-      <option value="item5">Элемент 2</option>
+      <option value="item5" selected>Элемент 2</option>
       <option value="item6">Элемент 3</option>
     </select>
   </form>
 
   <script>
-    
+    let form = document.forms.form1 // или document.forms[0] - индекс формы на странице
+
+    let radioBtns = form.elements.radioBtn
+    console.log(radioBtns[0].checked)
+    console.log(radioBtns[1].value)
+
+    let fieldset = form.elements.myFieldset
+    console.log(fieldset.elements.password)
+
+    let select = form.elements.mySelect
+    console.log(select.options[0].selected)
+    console.log(select.options[2].selected)
+    console.log(select.selectedIndex)
+    console.log(select.value)
+    // Установить селект на конкретный элемент
+    select.options[2].selected = true
+    // или
+    select.selectedIndex = 2
+    // или
+    select.value = 'item2'
+
+    let select2 = form.elements.mySelect2
+    let selected = Array.from(select2.options)
+    .filter(option => option.selected)
+    .map(option => option.value)
+    console.log(selected)
+    let newOpt = new Option("Элемент 4", "item7", true)
+    console.log(newOpt)
+    select2.append(newOpt)
+
   </script>
 </body>
 
