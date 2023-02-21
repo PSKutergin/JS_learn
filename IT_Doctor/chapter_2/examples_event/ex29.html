@@ -11,7 +11,32 @@
 <body>
 
   <script>
-    
+    function hotKeys(func, ...codes) {
+      let pressed = new Set()
+      document.addEventListener('keydown', function(e) {
+        pressed.add(e.code)
+        for(let code of codes) {
+          if(!pressed.has(code)) {
+            return
+          }
+        }
+        pressed.clear()
+        func()
+      })
+      // Под вопросом, нужна ли эта функция:
+      document.addEventListener('keyup', function(e) {
+        pressed.delete(e.code)
+      })
+    }
+
+    hotKeys(function() {
+      console.log("Вы нажали F+G+T")
+    }, "KeyF", "KeyG", "KeyT")
+
+    hotKeys(function() {
+      console.log("Вы нажали T+L")
+    }, "KeyT", "KeyL")
+
   </script>
 </body>
 
