@@ -11,7 +11,15 @@
 <body>
   <input type="text" id="input">
   <script>
-    
+    // Отслеживает каждое изменение в input
+    // input.oninput = function() {
+    //   console.log(input.value)
+    // }
+
+    // Отслеживает только смену фокуса в input
+    input.onchange = function() {
+      console.log(input.value)
+    }
   </script>
 </body>
 

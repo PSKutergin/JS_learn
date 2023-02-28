@@ -18,7 +18,11 @@
   
 
   <script>
-    
+    let form = document.forms[0]
+    form.onsubmit = function(e) {
+      console.log('Отправка формы')
+      e.preventDefault()
+    }
   </script>
 </body>
 
