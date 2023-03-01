@@ -22,7 +22,36 @@
   <button id="button">Кнопка с текстом</button>
 
   <script>
-    
+    document.onselectionchange = function() {
+      let {anchorNode, anchorOffset, focusNode, focusOffset} = document.getSelection()
+      from.value = `${anchorNode && anchorNode.data}:${anchorOffset}`
+      to.value = `${focusNode && focusNode.data}:${focusOffset}`
+
+      console.log(document.getSelection().toString())
+    }
+
+    // Выделение текста кодом:
+    document.getSelection().setBaseAndExtent(p, 1, p, p.childNodes.length)
+
+    area.onselect = function() {
+      console.log(`Начало: ${area.selectionStart} Конец: ${area.selectionEnd}`)
+    }
+
+    area.onfocus = () => {
+      setTimeout(() => {
+        area.SelectionStart = area.selectionEnd = 20
+      })
+    }
+
+        // Запрет на выделение
+    // 1 способ
+    p.onselectstart = () => false
+
+    // 2 способ
+    document.onselectionchange = function() {
+      document.getSelection().empty()
+    }
+
   </script>
 </body>
 

@@ -11,7 +11,21 @@
 <body>
 
   <script>
+    document.addEventListener("DOMContentLoaded", function(e) {
+      console.log('DOM построен')
+    })
+    window.onload = function(e) {
+      console.log('Страница и все внешние ресурсы были загружены')
+    }
 
+    // Событие, чтобы что-то сохранить или отправить на сервер
+    document.addEventListener("unload", function(e) {
+      
+    })
+
+    window.onbeforeunload = function(e) {
+      return false
+    }
   </script>
 </body>
 
