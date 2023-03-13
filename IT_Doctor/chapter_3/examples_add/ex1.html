@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -13,7 +13,19 @@
   <input type="file" onchange="openFile(this)">
 
   <script>
-
+    function openFile(input) {
+      let file = input.file[0]
+      let reader = new FileReader()
+      console.log(file.name)
+      console.log(file.lastModified)
+      reader.readAsText(file)
+      reader.onload = function() {
+        console.log(reader.result)
+      }
+      reader.onerror = function() {
+        console.log(reader.error)
+      }
+    }
   </script>
 </body>
 
