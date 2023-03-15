@@ -244,6 +244,7 @@ h1 {
 .animated {
   transition-property: background-color;
   transition-duration: 3s;
+  transition-delay: 1s;
 }
 .move {
   position: relative;

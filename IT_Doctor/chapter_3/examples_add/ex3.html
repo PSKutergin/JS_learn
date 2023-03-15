@@ -14,7 +14,15 @@
   <br>
   Текст после картинки
   <script>
-
+    document.querySelector('.img-animate').onclick = function() {
+      this.style.opacity = 0
+    }
+    document.querySelector('.img-animate').addEventListener('transitionend', function(e) {
+      if(!e.propertyName == 'opacity') return
+      console.log(e.propertyName)
+      console.log(e.elapsedTime)
+      e.target.hidden = true
+    })
   </script>
 </body>
 
